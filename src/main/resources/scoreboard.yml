@@ -1,0 +1,12 @@
+scoreboard:
+  title: "&b&lStress Test"
+  lines:
+    - "&7&m-------------------"
+    - "&b&l ▎ &fUptime: &b<server-online-time>"
+    - "&b&l ▎ &fDate: &b<date>"
+    - "&b&l ▎ &fOnline: &b<online>"
+    - "&b&l ▎ &fSpigot: &b<spigot-name>"
+    - " "
+    - "<footer>"
+    - "&7&m-------------------"
+  footer: "&7&oPurchase at vifez.lol"

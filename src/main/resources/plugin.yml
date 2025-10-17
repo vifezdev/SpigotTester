@@ -1,0 +1,3 @@
+name: SpigotTester
+version: '${project.version}'
+main: lol.vifez.tester

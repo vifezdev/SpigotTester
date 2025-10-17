@@ -1,5 +1,8 @@
 package lol.vifez.util;
 
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.java.JavaPlugin;
+
 /**
  * @author vifez
  * @project SpigotTester
@@ -12,14 +15,13 @@ public class TPSUtil {
     private static long tickCount = 0;
     private static double tps = 20.0;
 
-    private static final int SAMPLE_INTERVAL = 100;
-
     public static void tick() {
         tickCount++;
         long currentTime = System.nanoTime();
 
         if (currentTime - lastTime >= 1_000_000_000L) {
             tps = tickCount / ((currentTime - lastTime) / 1_000_000_000.0);
+            tps = Math.min(tps, 20.0);
             tickCount = 0;
             lastTime = currentTime;
         }
@@ -27,5 +29,9 @@ public class TPSUtil {
 
     public static double getTPS() {
         return tps;
+    }
+
+    public static void start(JavaPlugin plugin) {
+        Bukkit.getScheduler().runTaskTimer(plugin, TPSUtil::tick, 0L, 1L);
     }
 }
